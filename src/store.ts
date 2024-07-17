@@ -15,11 +15,11 @@ const useCurrencyStore = create<CurrencyState>((set) => ({
 	eur: 0,
 	setUSD: (value: number) => set((state) => ({
 		usd: value,
-		eur: parseFloat((value * exchangeRate).toFixed(2))
+		eur: parseFloat((value / exchangeRate).toFixed(2))
 	})),
 	setEUR: (value: number) => set((state) => ({
 		eur: value,
-		usd: parseFloat((value / exchangeRate).toFixed(2))
+		usd: parseFloat((value * exchangeRate).toFixed(2))
 	}))
 }));
 
